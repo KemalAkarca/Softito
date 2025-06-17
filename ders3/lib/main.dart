@@ -9,20 +9,7 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: MyText(
-            icerik: "BUTTONS",
-            yaziRenk: Colors.white,
-            fw: FontWeight.bold,
-          ),
-          backgroundColor: Colors.green.shade700,
-        ),
-        body: TextandTextField(),
-      ),
-    );
+    return MaterialApp(debugShowCheckedModeBanner: false, home: MyPage());
   }
 }
 
@@ -466,17 +453,15 @@ class TextandTextField extends StatelessWidget {
             ),
           ),
           TextField(
-            style: TextStyle(
-              color: Colors.blue,
-            ), 
-            obscureText: true, 
-            maxLength: 11, 
+            style: TextStyle(color: Colors.blue),
+            obscureText: true,
+            maxLength: 11,
             decoration: InputDecoration(
               /*  hintText: "Email" , // bilgilendirme yazısı
                hintStyle: TextStyle( color: Colors.purple) */
-              label: Text("Şifre"), 
+              label: Text("Şifre"),
               labelStyle: TextStyle(color: Colors.blue, fontSize: 18),
-              filled: true, 
+              filled: true,
               fillColor: Colors.grey.shade300,
               border: OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.black, width: 3),
@@ -501,6 +486,236 @@ class TextandTextField extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class CircleAvatarExample extends StatelessWidget {
+  const CircleAvatarExample({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            child: CircleAvatar(
+              radius: 36,
+              /* child: Text(
+                "KA",
+                style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+              ), */
+              backgroundImage: NetworkImage(
+                "https://i.pinimg.com/564x/46/c7/ec/46c7ecf9aecc87e5567ebdc88c6bc85f.jpg",
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+// Image.asset() ve Image.network() birer widget
+// Eğer sizden imageprovider bekliyorsa NetworkImage ya da AssetImage koymalısın
+
+class TextFieldProje extends StatefulWidget {
+  const TextFieldProje({super.key});
+
+  @override
+  State<TextFieldProje> createState() => _TextFieldProjeState();
+}
+
+class _TextFieldProjeState extends State<TextFieldProje> {
+  String ad = "";
+  TextEditingController tf = TextEditingController();
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(14),
+            child: TextField(
+              controller: tf,
+              style: TextStyle(color: Colors.blue),
+              decoration: InputDecoration(
+                label: Text("İsim Soyisim"),
+                labelStyle: TextStyle(color: Colors.black),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  borderSide: BorderSide(color: Colors.green, width: 3),
+                ),
+
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  borderSide: BorderSide(color: Colors.red, width: 3),
+                ),
+              ),
+            ),
+          ),
+          Text("Alınan veri: $ad "),
+          SizedBox(height: 10),
+          ElevatedButton(
+            onPressed: () {
+              setState(() {
+                ad = tf.text;
+              });
+            },
+            child: Text("Gönder"),
+            style: ElevatedButton.styleFrom(
+              padding: EdgeInsets.symmetric(horizontal: 28, vertical: 14),
+              backgroundColor: Colors.teal.shade600,
+              foregroundColor: Colors.white,
+              shadowColor: Colors.teal.shade300,
+              elevation: 10,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+                side: BorderSide(color: Colors.tealAccent, width: 3),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+// eğer bir sayfada ekran çizmi(güncellemesi) gerekiyorsa statefullWidget kullanılır. Bu widget iki parçadan oluştuğu için kurucu metoda veri vermeden de değişken
+//tanımlanabilir.
+//SetState metodu ile ekran yeniden build edilir.
+
+//FloatinActionButton
+// 1)Normal bir buton gibi kullanılabilir ama scafoold içerisinde kullanılır ekrana duyarlı çalışır.
+// 2)Klavye açıldığında kalvye ile yukarı çıkar.
+// 3) Sayfada daşme sabit kalır(kalvye hariç)
+
+class FloatinActionButtonExample extends StatefulWidget {
+  const FloatinActionButtonExample({super.key});
+
+  @override
+  State<FloatinActionButtonExample> createState() =>
+      _FloatinActionButtonExampleState();
+}
+
+class _FloatinActionButtonExampleState
+    extends State<FloatinActionButtonExample> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("FloatinActionButton Çalışması"),
+        backgroundColor: Colors.purple,
+        foregroundColor: Colors.white,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextField(decoration: InputDecoration(hint: Text("Veri"))),
+            FloatingActionButton(
+              onPressed: () {},
+              child: Icon(Icons.ac_unit),
+              tooltip: "FAB1", //üstüne basılı tutunca bu yazı çıkar
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.add),
+        backgroundColor: Colors.blue,
+        foregroundColor: Colors.white,
+      ),
+    );
+  }
+}
+
+//Sayfalar Arası Geçiş
+// 1)Geçiş türü - 2)Geçiş Yönü - 3)Bulunduğu yer - gideceği yer
+/* 
+  Navigator.push(context, MaterailPageRoute(builder: 
+  (context) => sayfaA ()));
+ */
+
+//Tanımlama : Sayfadan sayfa ileri gitmek:
+//Navigator.push(bulundğun sayfa , Rota) =>
+
+class MyProject extends StatelessWidget {
+  const MyProject({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold();
+  }
+}
+
+class MyPage extends StatelessWidget {
+  const MyPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SayfaA();
+  }
+}
+
+class SayfaA extends StatelessWidget {
+  const SayfaA({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    TextEditingController tf =TextEditingController();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Sayfa A"),
+        backgroundColor: Colors.blue,
+        foregroundColor: Colors.white,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: TextField(
+                controller: tf,
+                decoration: InputDecoration(label: Text("Adınız")),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                String name = tf.text;
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SayfaB(name)),
+                );
+                /*                 Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SayfaB()));
+ */
+              },
+              child: Text("Sayfa B'ye git"),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class SayfaB extends StatelessWidget {
+  final String name;
+  const SayfaB(this.name);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Sayfa B"),
+        backgroundColor: Colors.green,
+        foregroundColor: Colors.white,
+      ),
+      body: Center(child: Text("Merhaba $name"),),
     );
   }
 }
