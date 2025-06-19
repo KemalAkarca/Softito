@@ -22,24 +22,40 @@ class _RadiobuttonKullanimiState extends State<RadiobuttonKullanimi> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             RadioListTile(
-              title: Text("Kadın"),
-              value: 1,
+              visualDensity: VisualDensity(horizontal: -4),
+              title: Text("Hiçbiri"),
+              value: 0,
               activeColor: Colors.red,
               groupValue: radioDeger,
-              onChanged: (int? gelenVeri){
+              onChanged: (int? gelenVeri) {
                 setState(() {
-                  radioDeger=gelenVeri!;
+                  radioDeger = gelenVeri!;
                 });
               },
             ),
             RadioListTile(
+              visualDensity: VisualDensity(horizontal: -4),
+
+              title: Text("Kadın"),
+              value: 1,
+              activeColor: Colors.red,
+              groupValue: radioDeger,
+              onChanged: (int? gelenVeri) {
+                setState(() {
+                  radioDeger = gelenVeri!;
+                });
+              },
+            ),
+            RadioListTile(
+              visualDensity: VisualDensity(horizontal: -4),
+
               title: Text("Erkek"),
               value: 2,
               activeColor: Colors.red,
               groupValue: radioDeger,
-              onChanged: (int? gelenVeri){
+              onChanged: (int? gelenVeri) {
                 setState(() {
-                  radioDeger=gelenVeri!;
+                  radioDeger = gelenVeri!;
                 });
               },
             ),
