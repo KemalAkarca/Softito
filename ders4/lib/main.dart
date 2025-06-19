@@ -1,4 +1,5 @@
 import 'package:ders4/checkedbox_kullanimi.dart';
+import 'package:ders4/radiobutton_kullanimi.dart';
 import 'package:ders4/switch_kullanimi.dart';
 import 'package:ders4/toggle_button_kullanimi.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,7 @@ class MainApp extends StatelessWidget {
     
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:CheckBoxKullanimi(),
+      home:RadiobuttonKullanimi(),
     );
   }
 }
