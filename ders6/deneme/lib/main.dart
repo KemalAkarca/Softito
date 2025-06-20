@@ -1,4 +1,5 @@
 import 'package:deneme/Images_examples.dart';
+import 'package:deneme/datePicker_kullanimi.dart';
 import 'package:deneme/fadeinimage_kullanimi.dart';
 import 'package:deneme/scrollView_kullanimi.dart';
 import 'package:deneme/timePicker_kullanimi.dart';
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: TimepickerKullanimi(),
+      home: DatepickerKullanimi(),
     );
   }
 }

@@ -9,7 +9,9 @@ class TimepickerKullanimi extends StatefulWidget {
 }
 
 class _TimepickerKullanimiState extends State<TimepickerKullanimi> {
-  TextEditingController tfSaat = TextEditingController();
+  TextEditingController tfSaat = TextEditingController(); //İçindeki metni kontrol etmek için okumak veya değiştirmek 
+                                                          //Başka yerden erişip değerini dinamik olarak değiştirmek.
+                                                          //tfSaat bunun nesnesi
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,13 +31,14 @@ class _TimepickerKullanimiState extends State<TimepickerKullanimi> {
                   alignment: Alignment.centerLeft,
                   height: 80,
                   child: TextField(
-                    readOnly: true,
-                    controller: tfSaat,
+                    enableInteractiveSelection: false, //Kullanıcı 'Saat Seçiniz' metnini seçip işlem yapamaz
+                    readOnly: true, //klavyeyle metin yazılamaz . ontap varsa seçilir
+                    controller: tfSaat, //tfSaat.text ile bu alandaki metni OKUYABİLİRSİN
                     decoration: InputDecoration(
                       hintText: "Saat Seçiniz",
                       prefixIcon: GestureDetector(child: Icon(Icons.alarm),
                       onTap: () {
-                        showTimePicker(context: context, initialTime: TimeOfDay.now()).then((zaman){
+                        showTimePicker(context: context, initialTime: TimeOfDay.now()).then((zaman){ //then((zaman) -- kullanıcı saat seçimini yaptıktan sonra çalışacak olan bloktur 
                           setState(() {
                             tfSaat.text="${zaman!.hour} : ${zaman.minute} ";
                           });
