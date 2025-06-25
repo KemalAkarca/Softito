@@ -22,7 +22,7 @@ class _DinamikListviewKullanimiState extends State<DinamikListviewKullanimi> {
       body: ListView.builder(
         itemCount: ulkeler.length,
         itemBuilder: (context, index) {
-          return UlkeCard();
+          return UlkeCard(ulkeAdi: ulkeler[index], index: index,);
         },
       )
     );
