@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold()
+      home: TasarimTekrar()
     );
   }
 }
@@ -28,10 +28,28 @@ class _TasarimTekrarState extends State<TasarimTekrar> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("data"),
+        title: Text("Tasarım tekrar"),
+        backgroundColor: Colors.red,
+        foregroundColor: Colors.white,
+      ),
+      body: Container(
+        color: Colors.blue,
+        child: Text("Merbaba"*100),
+        constraints: BoxConstraints( 
+          maxHeight: 200,
+          maxWidth: 200,
+          minHeight: 100,
+          minWidth: 100
+        ),
       ),
     );
   }
 }
+
+/* 
+  Container:
+
+
+ */
 
 
