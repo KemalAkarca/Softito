@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:odev1/calendar_page%20(1).dart';
+import 'package:odev1/today_task%20(1).dart';
 
 void main() {
   runApp(MaterialApp(
@@ -31,124 +32,126 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(height: 25),
-              // Profil ve Selamlama
-              Row(
+      extendBody: true,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(height: 25),
+            // Profil ve Selamlama
+            Row(
+              children: [
+                SizedBox(width: 15),
+                CircleAvatar(
+                  backgroundImage: AssetImage("resimler/profil.png.png"),
+                ),
+                SizedBox(width: 7),
+                Text("Hello"),
+                Text(",Username",
+                    style: TextStyle(fontWeight: FontWeight.bold)),
+              ],
+            ),
+            SizedBox(height: 15),
+            // 4 NEW TASKS TODAY
+            Row(
+              children: [
+                SizedBox(width: 15),
+                Text("4 New ", style: TextStyle(fontWeight: FontWeight.bold)),
+                Text("tasks today"),
+              ],
+            ),
+            SizedBox(height: 25),
+            // Konteynırlar
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
                 children: [
-                  SizedBox(width: 15),
-                  CircleAvatar(
-                    backgroundImage: AssetImage("resimler/profil.png.png"),
+                  SizedBox(width: 40),
+                  buyuk_container(
+                    color: Color.fromARGB(255, 240, 213, 131),
+                    title: "UX Design for MONS calendar",
+                    date: "Oct 25, 2025",
+                    description:
+                        "Aldı dedi git dedi çocuklarını istiyorsan kendini de al kendini git dedi",
                   ),
-                  SizedBox(width: 7),
-                  Text("Hello"),
-                  Text(",Username",
-                      style: TextStyle(fontWeight: FontWeight.bold)),
+                  SizedBox(width: 8),
+                  buyuk_container(
+                    color: Color.fromARGB(255, 131, 196, 240),
+                    title: "UX Design for MONS calendar",
+                    date: "Oct 25, 2025",
+                    description:
+                        "Aldı dedi git dedi çocuklarını istiyorsan kendini de al kendini git dedi",
+                  ),
+                  SizedBox(width: 8),
+                  buyuk_container(
+                    color: Color.fromARGB(255, 131, 240, 136),
+                    title: "UX Design for MONS calendar",
+                    date: "Oct 25, 2025",
+                    description:
+                        "Aldı dedi git dedi çocuklarını istiyorsan kendini de al kendini git dedi",
+                  ),
                 ],
               ),
-              SizedBox(height: 15),
-              // 4 NEW TASKS TODAY
-              Row(
+            ),
+            SizedBox(height: 15),
+            // To Do kısmı
+            Padding(
+              padding: EdgeInsets.only(left: 27),
+              child: Row(
                 children: [
-                  SizedBox(width: 15),
-                  Text("4 New ", style: TextStyle(fontWeight: FontWeight.bold)),
-                  Text("tasks today"),
+                  Text("To"),
+                  SizedBox(width: 8),
+                  Text("Do", style: TextStyle(fontWeight: FontWeight.bold)),
+                  SizedBox(width: 8),
+                  CircleAvatar(
+                    radius: 12,
+                    backgroundColor: Colors.blue.shade50,
+                    child: Text("3", style: TextStyle(fontSize: 12)),
+                  )
                 ],
               ),
-              SizedBox(height: 25),
-              // Konteynırlar
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    SizedBox(width: 40),
-                    buyuk_container(
-                      color: Color.fromARGB(255, 240, 213, 131),
-                      title: "UX Design for MONS calendar",
-                      date: "Oct 25, 2025",
-                      description:
-                          "Aldı dedi git dedi çocuklarını istiyorsan kendini de al kendini git dedi",
-                    ),
-                    SizedBox(width: 8),
-                    buyuk_container(
-                      color: Color.fromARGB(255, 131, 196, 240),
-                      title: "UX Design for MONS calendar",
-                      date: "Oct 25, 2025",
-                      description:
-                          "Aldı dedi git dedi çocuklarını istiyorsan kendini de al kendini git dedi",
-                    ),
-                    SizedBox(width: 8),
-                    buyuk_container(
-                      color: Color.fromARGB(255, 131, 240, 136),
-                      title: "UX Design for MONS calendar",
-                      date: "Oct 25, 2025",
-                      description:
-                          "Aldı dedi git dedi çocuklarını istiyorsan kendini de al kendini git dedi",
-                    ),
-                  ],
-                ),
+            ),
+            SizedBox(height: 15),
+            // Urgent Alanı
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  SizedBox(width: 40),
+                  kucuk_container(color: Color.fromARGB(255, 247, 177, 187)),
+                  SizedBox(width: 8),
+                  kucuk_container(color: Color.fromARGB(255, 177, 247, 235)),
+                  SizedBox(width: 8),
+                  kucuk_container(color: Color.fromARGB(255, 237, 247, 177)),
+                  SizedBox(width: 8),
+                  kucuk_container(color: Color.fromARGB(255, 177, 247, 177)),
+                  SizedBox(width: 8),
+                  kucuk_container(color: Color.fromARGB(255, 227, 177, 247)),
+                ],
               ),
-              SizedBox(height: 15),
-              // To Do kısmı
-              Padding(
-                padding: EdgeInsets.only(left: 27),
-                child: Row(
-                  children: [
-                    Text("To"),
-                    SizedBox(width: 8),
-                    Text("Do", style: TextStyle(fontWeight: FontWeight.bold)),
-                    SizedBox(width: 8),
-                    CircleAvatar(
-                      radius: 12,
-                      backgroundColor: Colors.blue.shade50,
-                      child: Text("3", style: TextStyle(fontSize: 12)),
-                    )
-                  ],
-                ),
+            ),
+            SizedBox(height: 15),
+            // In Progress Alanı
+            Padding(
+              padding: EdgeInsets.only(left: 27),
+              child: Row(
+                children: [
+                  Text("In", style: TextStyle(fontWeight: FontWeight.bold)),
+                  SizedBox(width: 8),
+                  Text("Progress"),
+                  SizedBox(width: 8),
+                  CircleAvatar(
+                    radius: 12,
+                    backgroundColor: Colors.orange.shade100,
+                    child: Text("3", style: TextStyle(fontSize: 12)),
+                  )
+                ],
               ),
-              SizedBox(height: 15),
-              // Urgent Alanı
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    SizedBox(width: 40),
-                    kucuk_container(color: Color.fromARGB(255, 247, 177, 187)),
-                    SizedBox(width: 8),
-                    kucuk_container(color: Color.fromARGB(255, 177, 247, 235)),
-                    SizedBox(width: 8),
-                    kucuk_container(color: Color.fromARGB(255, 237, 247, 177)),
-                    SizedBox(width: 8),
-                    kucuk_container(color: Color.fromARGB(255, 177, 247, 177)),
-                    SizedBox(width: 8),
-                    kucuk_container(color: Color.fromARGB(255, 227, 177, 247)),
-                  ],
-                ),
-              ),
-              SizedBox(height: 15),
-              // In Progress Alanı
-              Padding(
-                padding: EdgeInsets.only(left: 27),
-                child: Row(
-                  children: [
-                    Text("In", style: TextStyle(fontWeight: FontWeight.bold)),
-                    SizedBox(width: 8),
-                    Text("Progress"),
-                    SizedBox(width: 8),
-                    CircleAvatar(
-                      radius: 12,
-                      backgroundColor: Colors.orange.shade100,
-                      child: Text("3", style: TextStyle(fontSize: 12)),
-                    )
-                  ],
-                ),
-              ),
-              SizedBox(height: 15), // Alt kısım boşluk bırakıyoruz
-              // Checkboxlı kısım
-              Column(
+            ),
+            SizedBox(height: 15), // Alt kısım boşluk bırakıyoruz
+            // Checkboxlı kısım
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   checkboxlu_container(
@@ -162,7 +165,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         });
                       }),
                   SizedBox(
-                    height: 12,
+                    height: 15,
                   ),
                   checkboxlu_container(
                       title: "UX Design for MONS calendar",
@@ -171,13 +174,26 @@ class _MyHomePageState extends State<MyHomePage> {
                       isChecked: isChecked2,
                       onChanged: (val) {
                         setState(() {
-                          isChecked1 = val ?? false;
+                          isChecked2 = val ?? false;
+                        });
+                      }),
+                      SizedBox(
+                    height: 15,
+                  ),
+                  checkboxlu_container(
+                      title: "UX Design for MONS calendar",
+                      color: const Color.fromARGB(255, 187, 206, 247),
+                      hours: "6 hours",
+                      isChecked: isChecked2,
+                      onChanged: (val) {
+                        setState(() {
+                          isChecked2 = val ?? false;
                         });
                       }),
                 ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
       // SABİT BOTTOM NAVIGATION BAR
@@ -242,46 +258,32 @@ class _MyHomePageState extends State<MyHomePage> {
     return Container(
       padding: EdgeInsets.only(left: 12),
       height: 80,
-      width: 350,
+      width:400,
       decoration:
           BoxDecoration(color: color, borderRadius: BorderRadius.circular(18)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(
-            height: 12,
+          
+          Text(
+            title,
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                title,
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 21),
-              ),
               Checkbox(
                 value: isChecked,
                 onChanged: onChanged,
                 activeColor: Colors.orange,
-              )
-            ],
-          ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: EdgeInsets.only(top: 7.0),
-                child: Icon(
-                  Icons.flag,
-                  color: Colors.grey,
-                ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 7.0, left: 7),
-                child: Text(
-                  hours,
-                  style: TextStyle(fontSize: 17),
-                ),
-              )
+              Icon(
+                Icons.flag,
+                color: Colors.grey,
+              ),
+              Text(
+                hours,
+                style: TextStyle(fontSize: 17),
+              ),
             ],
           ),
         ],
@@ -296,7 +298,7 @@ class _MyHomePageState extends State<MyHomePage> {
     required String description,
   }) {
     return Container(
-      padding: EdgeInsets.only(left: 12),
+      padding: EdgeInsets.only(left: 9),
       height: 250,
       width: 250,
       decoration:
@@ -364,7 +366,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget kucuk_container({required Color color}) {
     return Container(
-      padding: EdgeInsets.only(left: 12),
+      padding: EdgeInsets.only(left: 9),
       height: 180,
       width: 160,
       decoration:
@@ -402,3 +404,5 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+
