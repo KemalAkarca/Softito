@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tekrar/sliver.dart';
 
 void main() {
   runApp(const MyApp());
@@ -120,44 +121,36 @@ class _TasarimTekrarState
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: Container(
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: Colors.green,
-            width: 5,
-          ),
+    return Sliverlar();
+  }
+
+  GridView gridview_extend() {
+    return GridView.extent(
+      maxCrossAxisExtent: 160,
+      crossAxisSpacing:
+          20, //sütünlar arası boşluk
+      mainAxisSpacing:
+          40, //satırlar arası boşluk
+      padding: EdgeInsets.all(12),
+
+      children: [
+        sabitGridViewEleman(Colors.red),
+        sabitGridViewEleman(
+          Colors.green,
         ),
-        child: GridView.count(
-          crossAxisSpacing:
-              20, //sütünlar arası boşluk
-          mainAxisSpacing:
-              40, //satırlar arası boşluk
-          padding: EdgeInsets.all(12),
-          crossAxisCount: 2,
-          children: [
-            sabitGridViewEleman(
-              Colors.red,
-            ),
-            sabitGridViewEleman(
-              Colors.green,
-            ),
-            sabitGridViewEleman(
-              Colors.brown,
-            ),
-            sabitGridViewEleman(
-              Colors.yellow,
-            ),
-            sabitGridViewEleman(
-              Colors.blue,
-            ),
-            sabitGridViewEleman(
-              Colors.purple,
-            ),
-          ],
+        sabitGridViewEleman(
+          Colors.brown,
         ),
-      ),
+        sabitGridViewEleman(
+          Colors.yellow,
+        ),
+        sabitGridViewEleman(
+          Colors.blue,
+        ),
+        sabitGridViewEleman(
+          Colors.purple,
+        ),
+      ],
     );
   }
 
@@ -257,7 +250,17 @@ Widget sabitGridViewEleman(
   );
 }
 
-
+Widget dinamikGridElemani(int index) {
+  return Container(
+    height: 75,
+    child: Text("Eleman ${index + 1}"),
+    color:
+        Colors.orange[((((index + 1) %
+                    8) +
+                1) *
+            100)],
+  );
+}
 
 
 /*
