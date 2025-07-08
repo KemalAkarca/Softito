@@ -7,7 +7,7 @@ class GreenPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Yeşil sayfa"),
+        title: Text("Yeşil Sayfa"),
         backgroundColor: Colors.green,
         foregroundColor: Colors.white,
       ),

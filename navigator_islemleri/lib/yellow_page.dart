@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class GreenPage extends StatelessWidget {
-  const GreenPage({super.key});
+class YellowPage extends StatelessWidget {
+  const YellowPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Sarı sayfa"),
+        title: Text("Yellow Sayfa"),
         backgroundColor: Colors.yellow,
         foregroundColor: Colors.white,
       ),

@@ -27,11 +27,12 @@ class _Navigation1State extends State<Navigation1> {
                 foregroundColor: Colors.white,
                 shape: RoundedRectangleBorder(),
               ),
-              onPressed: () {
-                Navigator.push(
+              onPressed: () async {
+                int? gelenSayi = await Navigator.push<int>(
                   context,
                   MaterialPageRoute(builder: (context) => RedPage()),
                 );
+                print(gelenSayi);
               },
               child: Text("Kırmızı sayfaya git"),
             ),
@@ -51,3 +52,14 @@ class _Navigation1State extends State<Navigation1> {
     );
   }
 }
+
+/* 
+  Eski adı : WillPopScope
+Yeni Adı : PopScope
+
+- Eğer kullanıcı telindeki geri butonu ya da appbar da kş gerş butonu basarak geri geliyorsa bunu kontrol etmek. için kullanılır
+
+- Bu yapı Scaffold u sarmalar . Popscope() ile . Biz bu yapıyı kontrol etmek istiyorsan canPop parametresini kullanmak zorundayız.
+-Canpop false ise geri butonu tıklanmaz hale gelir. Ama hala tıklanma erişimini alabiliriz.
+
+ */
