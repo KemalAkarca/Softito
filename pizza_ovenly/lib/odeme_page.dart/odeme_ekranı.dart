@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pizza_ovenly/verify_page.dart/verify_ekrani.dart';
 
 class OdemeEkrani extends StatefulWidget {
   const OdemeEkrani({super.key});
@@ -108,7 +109,7 @@ class _OdemeEkraniState extends State<OdemeEkrani> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => OdemeEkrani()),
+                    MaterialPageRoute(builder: (context) => VerifyEkrani()),
                   );
                 },
                 child: Text(
