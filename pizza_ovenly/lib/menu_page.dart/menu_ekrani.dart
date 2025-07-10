@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pizza_ovenly/menu_page.dart/detail.dart';
 
 class MenuEkrani extends StatefulWidget {
   const MenuEkrani({super.key});
@@ -430,142 +431,153 @@ class _MenuEkraniState extends State<MenuEkrani> {
               ),
               SizedBox(height: 15),
               //Marherita
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Detail()),
+                  );
+                },
 
-                child: Container(
-                  height: 150,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Color(0xfff8f8f8),
-                  ),
-                  child: Row(
-                    children: [
-                      //main image
-                      Expanded(
-                        flex: 3,
-                        child: Container(
-                          child: Image.asset("resimler/Margherita Pizza.png"),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
+
+                  child: Container(
+                    height: 150,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Color(0xfff8f8f8),
+                    ),
+                    child: Row(
+                      children: [
+                        //main image
+                        Expanded(
+                          flex: 3,
+                          child: Container(
+                            child: Image.asset("resimler/Margherita Pizza.png"),
+                          ),
                         ),
-                      ),
-                      //Detaylar
-                      Expanded(
-                        flex: 4,
-                        child: Container(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              //Special Offer
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 12,
-                                  vertical: 12,
-                                ),
-                                child: Text(
-                                  "Margherita Pizza",
-                                  style: TextStyle(
-                                    fontSize: 17,
-                                    fontWeight: FontWeight.bold,
+                        //Detaylar
+                        Expanded(
+                          flex: 4,
+                          child: Container(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                //Special Offer
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 12,
+                                    vertical: 12,
+                                  ),
+                                  child: Text(
+                                    "Margherita Pizza",
+                                    style: TextStyle(
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                 ),
-                              ),
 
-                              //Detail
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 12,
-                                ),
-                                child: Text(
-                                  "Offer valid today only",
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    color: Color(0xFF868686),
+                                //Detail
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 12,
+                                  ),
+                                  child: Text(
+                                    "Offer valid today only",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      color: Color(0xFF868686),
+                                    ),
                                   ),
                                 ),
-                              ),
-                              //min ve yıldız
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 12,
-                                  vertical: 8,
-                                ),
-                                child: Row(
-                                  children: [
-                                    Text(
-                                      "30min",
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        color: Color(0xFF868686),
-                                      ),
-                                    ),
-                                    SizedBox(width: 5),
-                                    Text(
-                                      "4.6",
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        color: Color(0xFF868686),
-                                      ),
-                                    ),
-                                    Image.asset("resimler/Star 1.png"),
-                                  ],
-                                ),
-                              ),
-
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 12,
-                                ),
-                                child: Row(
-                                  children: [
-                                    Text(
-                                      "\$10.00",
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                    SizedBox(width: 5),
-                                    Container(
-                                      decoration: BoxDecoration(
-                                        color: Color(0xFFB55638),
-                                        borderRadius: BorderRadius.circular(35),
-                                      ),
-                                      alignment: Alignment.center,
-                                      width: 50,
-                                      height: 15,
-                                      child: Text(
-                                        "25% Off",
+                                //min ve yıldız
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 12,
+                                    vertical: 8,
+                                  ),
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        "30min",
                                         style: TextStyle(
-                                          fontSize: 10,
-                                          color: Colors.white,
+                                          fontSize: 16,
+                                          color: Color(0xFF868686),
                                         ),
                                       ),
-                                    ),
-                                  ],
+                                      SizedBox(width: 5),
+                                      Text(
+                                        "4.6",
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          color: Color(0xFF868686),
+                                        ),
+                                      ),
+                                      Image.asset("resimler/Star 1.png"),
+                                    ],
+                                  ),
                                 ),
+
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 12,
+                                  ),
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        "\$10.00",
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      SizedBox(width: 5),
+                                      Container(
+                                        decoration: BoxDecoration(
+                                          color: Color(0xFFB55638),
+                                          borderRadius: BorderRadius.circular(
+                                            35,
+                                          ),
+                                        ),
+                                        alignment: Alignment.center,
+                                        width: 50,
+                                        height: 15,
+                                        child: Text(
+                                          "25% Off",
+                                          style: TextStyle(
+                                            fontSize: 10,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(top: 15),
+                                child: Icon(Icons.favorite_border),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(bottom: 15),
+                                child: Image.asset("resimler/Frame 7.png"),
                               ),
                             ],
                           ),
                         ),
-                      ),
-                      Expanded(
-                        flex: 1,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(top: 15),
-                              child: Icon(Icons.favorite_border),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 15),
-                              child: Image.asset("resimler/Frame 7.png"),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -577,43 +589,47 @@ class _MenuEkraniState extends State<MenuEkrani> {
                       padding: const EdgeInsets.symmetric(horizontal: 12),
                       child: Container(
                         height: 80,
+
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(60),
-                          color: Color(0xfff8f8f8),
+                          color: Colors.black,
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             //Search
-                            Image.asset(
-                              "resimler/solar_home-2-bold.png",
-
-                              height: 90,
-                              color: Colors.black,
+                            CircleAvatar(
+                              radius: 32,
+                              backgroundColor: Colors.white,
+                              child: Image.asset(
+                                "resimler/solar_home-2-bold.png",
+                                height: 90,
+                                color: Color(0xFFB55638),
+                              ),
                             ),
                             Image.asset(
                               "resimler/Menu.png",
 
                               height: 90,
-                              color: Colors.black,
+                              color: Colors.grey,
                             ),
                             Image.asset(
                               "resimler/Bag.png",
 
                               height: 90,
-                              color: Colors.black,
+                              color: Colors.grey,
                             ),
                             Image.asset(
                               "resimler/Favorite.png",
 
                               height: 90,
-                              color: Colors.black,
+                              color: Colors.grey,
                             ),
                             Image.asset(
                               "resimler/User.png",
 
                               height: 90,
-                              color: Colors.black,
+                              color: Colors.grey,
                             ),
                           ],
                         ),
