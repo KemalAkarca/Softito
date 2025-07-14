@@ -55,6 +55,18 @@ class DersListesi extends StatelessWidget {
               );
             },
           )
-        : Container();
+        : Center(
+            child: Container(
+              child: Text(
+                "Lütfen Ders Ekleyiniz",
+                style: TextStyle(
+                  color: Sabitler.anaRenk,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: "ElYazisi",
+                ),
+              ),
+            ),
+          );
   }
 }
